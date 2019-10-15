@@ -1,5 +1,5 @@
 {% set name = "azure-cli-telemetry" %}
-{% set version = "1.0.2" %}
+{% set version = "1.0.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c0141ddeed1319bcc3179617f74859e5f17477ce676051a4ead1d29c75eb9593
+  sha256: 1f239d544d309c29e827982cc20113eb57037dba16db6cdd2e0283e437e0e577
 
 build:
   number: 0
