@@ -1,30 +1,32 @@
 {% set name = "azure-cli-telemetry" %}
-{% set version = "1.0.2" %}
+{% set version = "1.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c0141ddeed1319bcc3179617f74859e5f17477ce676051a4ead1d29c75eb9593
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: d922379cda1b48952be75fb3bd2ac5e7ceecf569492a6088bab77894c624a278
 
 build:
-  number: 4
+  noarch: python
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
-  run:
-    - python
-    - applicationinsights >=0.11.1
-    - portalocker ==1.2.1
     - setuptools
-    - pywin32  # [win]
+  run:
+    - python >={{ python_min }}
+    - applicationinsights >=0.11.1,<0.12
+    - portalocker >=1.6,<3
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - azure
     - azure.cli
@@ -39,7 +41,7 @@ about:
   summary: Microsoft Azure CLI Telemetry Package
 
   doc_url: https://docs.microsoft.com/en-us/cli/azure
-  dev_url: https://github.com/Azure/azure-cli
+  dev_url: https://github.com/Azure/azure-cli/tree/main/src/azure-cli-telemetry
 
 extra:
   recipe-maintainers:
