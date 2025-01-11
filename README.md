@@ -9,7 +9,7 @@ Package license: MIT
 
 Summary: Microsoft Azure CLI Telemetry Package
 
-Development: https://github.com/Azure/azure-cli
+Development: https://github.com/Azure/azure-cli/tree/main/src/azure-cli-telemetry
 
 Documentation: https://docs.microsoft.com/en-us/cli/azure
 
